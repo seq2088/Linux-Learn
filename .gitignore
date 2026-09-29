@@ -1,0 +1,15 @@
+# 编译产物
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.ko
+*.mod
+*.mod.c
+*.d
+*.out
+a.out
+
+# 可执行文件
+hello_arm
