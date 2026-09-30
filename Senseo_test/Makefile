@@ -1,11 +1,12 @@
 TARGET_USER ?= orangepi
-TARGET_IP   ?= 10.42.0.48
+TARGET_IP   ?= 10.42.0.49
+
 # 远程存放目录：自动跟随当前文件夹名（如果想平铺到 Linux_learn 根目录： make run TARGET_DIR=/home/orangepi/Linux_learn
 TARGET_DIR  ?= /home/$(TARGET_USER)/Linux_learn/$(notdir $(CURDIR))
 
 # ================= 编译选项配置 =================
 # 生成的可执行文件名（可自由修改）
-TARGET      := read_temp
+TARGET      := Sensor_temp
 
 # 自动扫描当前目录下所有的 .c 源文件
 SRCS        := $(wildcard *.c)
@@ -18,8 +19,8 @@ OBJS        := $(SRCS:.c=.o)
 # -g: 保留调试符号（方便后续使用 gdb 调试cu
 # -pthread: 启用 POSIX 多线程支持
 CC          := gcc
-CFLAGS      := -Wall -Wextra -O2 -g -pthreacu
-LDFLAGS     := -pthreacu
+CFLAGS      := -Wall -Wextra -O2 -g -pthread
+LDFLAGS     := -pthread
 
 # ================= 伪目标声明 =================
 .PHONY: all run clean
